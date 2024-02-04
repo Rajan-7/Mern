@@ -1,4 +1,5 @@
 const User = require("../models/user-model");
+const bcrypt = require("bcrypt");
 
 const home = async (req, res) => {
   try {
@@ -10,22 +11,21 @@ const home = async (req, res) => {
 
 const register = async (req, res) => {
   try {
-   
-    const {username,email,phone,password} = req.body;
+    const { username, email, phone, password } = req.body;
 
-    const userExist = await User.findOne({email});
+    const userExist = await User.findOne({ email });
 
-    if(userExist){
-      return res.status(400).json({msg:"Email already exist"});
+    if (userExist) {
+      return res.status(400).json({ msg: "Email already exist" });
     }
 
-    const resData = await User.create({username,email,phone,password});
+    const resData = await User.create({ username, email, phone, password });
 
-    res.status(200).json({resData});
+    res.status(200).json({ resData });
     // console.log(resData);
   } catch (error) {
     res.status(400).send({ msg: "Page not found" });
   }
 };
 
-module.exports = {home,register};
+module.exports = { home, register };
