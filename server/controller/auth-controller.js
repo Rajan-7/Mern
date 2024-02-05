@@ -1,6 +1,7 @@
 const User = require("../models/user-model");
 const bcrypt = require("bcrypt");
 
+// Home page
 const home = async (req, res) => {
   try {
     res.status(200).send("Controller Mern page");
@@ -9,6 +10,7 @@ const home = async (req, res) => {
   }
 };
 
+// Registration page
 const register = async (req, res) => {
   try {
     const { username, email, phone, password } = req.body;
@@ -26,17 +28,43 @@ const register = async (req, res) => {
       password,
     });
 
-    res
-      .status(200)
-      .json({
-        msg: "Registration Successfull",
-        token: await userCreateData.generateToken(),
-        userId: userCreateData._id.toString(),
-      });
+    res.status(201).json({
+      msg: "Registration Successfull",
+      token: await userCreateData.generateToken(),
+      userId: userCreateData._id.toString(),
+    });
     // console.log(resData);
   } catch (error) {
-    res.status(400).send({ msg: "Page not found" });
+    res.status(500).send("Interval server error");
   }
 };
 
-module.exports = { home, register };
+// Login page
+
+const login = async (req,res)=>{
+  try {
+    const {email,password}=req.body;
+
+    const userExist = await User.findOne({email});
+
+    if(!userExist){
+      res.status(400).json({msg:"Invalid Credential"});
+    }
+
+    const user = await userExist.comparePass(password);
+
+    if(user){
+      res.status(200).json({
+        msg:"Login successful",
+        token:await userExist.generateToken(),
+        userId:userExist._id.toString(),
+      })
+    }else{
+      res.status(401).json({msg:"Invalid email or password"});
+    }
+  } catch (error) {
+    res.status(500).json("Internal server error");
+  }
+}
+
+module.exports = { home, register, login };

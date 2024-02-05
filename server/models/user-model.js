@@ -26,7 +26,6 @@ const userSchema = new mongoose.Schema({
 });
 
 // * Using bcrypt to secure the password
-
 userSchema.pre("save", async function (next) {
   const user = this;
 
@@ -42,6 +41,11 @@ userSchema.pre("save", async function (next) {
     next(error);
   }
 });
+
+// bcrypt compare
+userSchema.methods.comparePass = async function (pass) {
+  return bcrypt.compare(pass, this.password);
+};
 
 // Generating token using jsonwebtoken
 userSchema.methods.generateToken = async function () {
