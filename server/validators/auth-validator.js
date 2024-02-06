@@ -25,4 +25,9 @@ const signupSchema = z.object({
     .max(50, { message: "Password most not contain more than 50 character" }),
 });
 
+// const loginSchema = z.object({
+//   email: z.string({ message: "Invalid email or password" }),
+//   password: z.string({ message: "Invalid password or email" }),
+// });
+
 module.exports = signupSchema;

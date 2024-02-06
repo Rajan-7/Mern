@@ -35,7 +35,8 @@ const register = async (req, res) => {
     });
     // console.log(resData);
   } catch (error) {
-    res.status(500).send("Interval server error");
+    // res.status(500).send("Interval server error");
+    next(error);
   }
 };
 
