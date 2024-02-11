@@ -7,3 +7,15 @@
 html{
   font-size: 62.5%;
 }
+
+.grid{
+  display: grid;
+}
+
+label{
+  font-size: 1.6rem;
+}
+
+.grid-two-cols{
+  grid-template-columns: repeat(2,1fr);
+}
