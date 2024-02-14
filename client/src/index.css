@@ -192,14 +192,66 @@ button:hover {
   }
   & label {
     display: block;
-    margin-bottom: .8rem;
+    margin-bottom: 0.8rem;
     text-transform: capitalize;
   }
 
   & input,
   textarea {
     width: 80%;
-    padding: 0.4rem .6rem;
+    padding: 0.4rem 0.6rem;
   }
 }
 /* End contact section */
+
+/* Registration page */
+.section-registration {
+  & .registration-image {
+    display: flex;
+    justify-content: center;
+  }
+  & .registration-form {
+    & .main-heading {
+      font-size: 3.4rem;
+    }
+    & form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    & label {
+      display: block;
+      margin-bottom: 0.8rem;
+      text-transform: capitalize;
+    }
+    & input,
+    textarea {
+      width: 80%;
+      padding: 0.4rem 0.6rem;
+    }
+  }
+}
+/* End registration page */
+
+/* Login section */
+.section-login .registration-form {
+  & .main-heading {
+    font-size: 3.4rem;
+  }
+  & form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  & label {
+    display: block;
+    margin-bottom: 0.8rem;
+  }
+  & input,
+  textarea {
+    width: 80%;
+    padding: 0.4rem 0.6rem;
+  }
+}
+/* End login section */
