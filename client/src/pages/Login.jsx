@@ -24,13 +24,13 @@ export const Login = () => {
     <>
       <section>
         <div className="section-login">
-          <div className="registration-container grid grid-two-cols">
+          <div className="container grid grid-two-cols">
             <div className="registration-image">
               <img
-                src="/image/llog.png"
+                src="/image/login.png"
                 alt="Boy registring his information in website"
-                width="800"
-                height="800"
+                width="500"
+                height="500"
               />
             </div>
             <div className="registration-form">
@@ -50,7 +50,6 @@ export const Login = () => {
                     onChange={handleInput}
                   />
                 </div>
-
                 <div>
                   <label htmlFor="password">password</label>
                   <input

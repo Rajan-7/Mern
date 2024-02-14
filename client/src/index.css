@@ -73,6 +73,7 @@ button {
   padding: 1rem 2.2rem;
   font-size: 1.7rem;
   font-weight: 500;
+  cursor: pointer;
   letter-spacing: 0.1rem;
   border-radius: 0.8rem;
   -webkit-border-radius: 0.8rem;
@@ -107,7 +108,7 @@ button:hover {
   & .hero-content {
     & p {
       margin: 2.4rem 0 4.8rem 0;
-      &:first-child{
+      &:first-child {
         margin: 0 0 1.2rem 0;
       }
     }
@@ -156,13 +157,49 @@ button:hover {
 /* End Hero section */
 
 /* Footer section */
-.footer-section{
+.footer-section {
   width: 100%;
   height: 10vh;
   background-color: var(--btn-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 /* End Footer section */
+
+/* Contact section */
+.contact-section {
+  & .contact-content {
+    padding: 0;
+  }
+  & .main-heading {
+    padding-left: 3rem;
+    font-size: 3.4rem;
+    margin-bottom: 3rem;
+  }
+}
+
+.contact-image {
+  display: flex;
+  justify-content: center;
+}
+
+.form-section {
+  & form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+  & label {
+    display: block;
+    margin-bottom: .8rem;
+    text-transform: capitalize;
+  }
+
+  & input,
+  textarea {
+    width: 80%;
+    padding: 0.4rem .6rem;
+  }
+}
+/* End contact section */

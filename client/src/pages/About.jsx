@@ -42,7 +42,7 @@ export const About = () => {
             </div>
             <div className="hero-image">
               <img
-                src="/image/about1.png"
+                src="/image/about.png"
                 alt="A girl showing content"
                 height="600"
                 width="500"

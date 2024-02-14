@@ -1,42 +1,42 @@
 import { useState } from "react";
 
 export const Register = () => {
-    const [user,setUser] = useState({
-        username:"",
-        email:"",
-        phone:"",
-        password:""
-    })
+  const [user, setUser] = useState({
+    username: "",
+    email: "",
+    phone: "",
+    password: "",
+  });
 
-    // handling registration form
-    const handleInput = (e)=>{
-      let name = e.target.name;
-      let value = e.target.value;
+  // handling registration form
+  const handleInput = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
 
-      setUser({
-        ...user,
-        [name]:value,
-      })
-    }
+    setUser({
+      ...user,
+      [name]: value,
+    });
+  };
 
-    // handling submission
-    const handleSubmit = (e) =>{
-       e.preventDefault();
-       console.log(user);
-    }
+  // handling submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(user);
+  };
 
   return (
     <>
       <section>
         <main>
           <div className="section-registration">
-            <div className="registration-container grid grid-two-cols">
+            <div className="container grid grid-two-cols">
               <div className="registration-image">
                 <img
-                  src="/image/registerimage.png"
+                  src="/image/register.png"
                   alt="Boy registring his information in website"
-                  width="800"
-                  height="800"
+                  width="500"
+                  height="500"
                 />
               </div>
               <div className="registration-form">
@@ -96,7 +96,9 @@ export const Register = () => {
                     />
                   </div>
                   <br />
-                  <button type="submit" className="btn-submit">Register Now</button>
+                  <button type="submit" className="btn-submit">
+                    Register Now
+                  </button>
                 </form>
               </div>
             </div>

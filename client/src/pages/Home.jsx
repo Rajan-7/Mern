@@ -25,7 +25,7 @@ export const Home = () => {
             </div>
             <div className="hero-image">
               <img
-                src="/image/himage.png"
+                src="/image/home.png"
                 alt="A girl coding"
                 height="500"
                 width="500"
@@ -60,7 +60,7 @@ export const Home = () => {
         <div className="container grid grid-two-cols">
           <div className="hero-image">
             <img
-              src="/image/homedesign.png"
+              src="/image/design.png"
               alt="A girl coding"
               height="500"
               width="500"
