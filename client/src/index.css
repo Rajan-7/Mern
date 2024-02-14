@@ -255,3 +255,76 @@ button:hover {
   }
 }
 /* End login section */
+
+/* Error/PageNotFound section */
+#error-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+#error-page .content {
+  width: 70rem;
+  text-align: center;
+}
+
+.content h2.header {
+  font-size: 16vw;
+  line-height: 1em;
+  animation: animate 10s ease-in-out infinite;
+  -webkit-animation: animate 10s ease-in-out infinite;
+  text-shadow: 1px 1px 20px rgba(255, 255, 255, 0.25);
+  color: #747bff;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: 100% 0;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.content h4 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.content .btns {
+  margin: 2.5rem 0;
+
+  & a {
+    border: 1px solid var(--btn-color);
+    margin: 0 1rem;
+    border-radius: 2.5rem;
+    -webkit-border-radius: 2.5rem;
+    -moz-border-radius: 2.5rem;
+    -ms-border-radius: 2.5rem;
+    -o-border-radius: 2.5rem;
+    padding: 1rem 2.5rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--btn-color);
+  }
+  
+}
+
+.content .btns a:hover{
+  background-color: var(--btn-color);
+  color:#fff;
+}
+/* End Error/PageNotFound section */
+
+
+

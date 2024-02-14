@@ -7,6 +7,7 @@ import { Register } from "./pages/Register";
 import { Login } from "./pages/Login";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
+import { PageNotFound } from "./pages/PageNotFound";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/service" element={<Service />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="*" element={<PageNotFound />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>
