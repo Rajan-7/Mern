@@ -2,7 +2,7 @@
 
 export const Footer = ()=>{
     return <>
-        <footer>
+        <footer className="footer">
             <div className="footer-section">
              <p>&copy;RJNBEAST7</p>
             </div>

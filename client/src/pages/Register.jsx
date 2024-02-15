@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
   const [user, setUser] = useState({
@@ -19,6 +20,9 @@ export const Register = () => {
     });
   };
 
+  // Navigation
+  const navigate = useNavigate();
+
   // handling submission
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,6 +35,10 @@ export const Register = () => {
         },
         body: JSON.stringify(user),
       });
+      if (response.ok) {
+        setUser({ username: "", email: "", phone: "", password: "" });
+        navigate("/login");
+      }
       console.log("response data : ", response);
     } catch (error) {
       console.log("From register ", error);

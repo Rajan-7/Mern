@@ -165,6 +165,7 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
+
 /* End Footer section */
 
 /* Contact section */
@@ -317,14 +318,10 @@ button:hover {
     font-weight: 500;
     color: var(--btn-color);
   }
-  
 }
 
-.content .btns a:hover{
+.content .btns a:hover {
   background-color: var(--btn-color);
-  color:#fff;
+  color: #fff;
 }
 /* End Error/PageNotFound section */
-
-
-
