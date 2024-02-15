@@ -20,9 +20,21 @@ export const Register = () => {
   };
 
   // handling submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(user);
+    try {
+      const response = await fetch("http://localhost:5007/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+      console.log("response data : ", response);
+    } catch (error) {
+      console.log("From register ", error);
+    }
   };
 
   return (
