@@ -8,6 +8,8 @@ import { Login } from "./pages/Login";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { PageNotFound } from "./pages/PageNotFound";
+import { Logout } from "./pages/Logout";
+
 
 const App = () => {
   return (
@@ -21,6 +23,7 @@ const App = () => {
           <Route path="/service" element={<Service />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout/>}/>
           <Route path="*" element={<PageNotFound />}></Route>
         </Routes>
         <Footer />

@@ -247,6 +247,7 @@ button:hover {
   }
   & label {
     display: block;
+    text-transform: capitalize;
     margin-bottom: 0.8rem;
   }
   & input,
