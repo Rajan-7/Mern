@@ -71,9 +71,9 @@ const login = async (req, res) => {
 // To send the user data -> User Logic
 const user = async (req, res) => {
   try {
-    const userData1 = req.user;
+    const userData = req.user;
     // console.log(userData);
-    res.status(200).json({ msg:  userData1});
+    res.status(200).json({ userData });
   } catch (error) {
     console.error(`An error from the user route ${error}`);
   }
