@@ -1,4 +1,8 @@
+import {useAuth} from "../store/auth";
+
 export const About = () => {
+
+  const {user}=useAuth();
   return (
     <>
       {/* 1st section*/}
@@ -6,7 +10,7 @@ export const About = () => {
         <section className="hero-section">
           <div className="container grid grid-two-cols">
             <div className="hero-content">
-              <p>Welcome,Jkovic Brady</p>
+              <p>Welcome,{user.username}</p>
               <h1>Why Choose Us?</h1>
               <p>
                 Expertise: Our team consists of experienced IT professionals who

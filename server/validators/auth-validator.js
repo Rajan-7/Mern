@@ -6,7 +6,7 @@ const signupSchema = z.object({
   username: z
     .string({ required_error: "Name is required" })
     .trim()
-    .min(6, { message: "Name have to be atleast 6 character" })
+    .min(4, { message: "Name have to be atleast 4 character" })
     .max(255, { message: "Name can contain more than 6 character" }),
   email: z
     .string({ required_error: "Email is required" })

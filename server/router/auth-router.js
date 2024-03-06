@@ -4,7 +4,6 @@ const authcontrollers = require("../controller/auth-controller");
 const validate = require("../middleware/validate-middleware");
 const signupSchema = require("../validators/auth-validator");
 const authMiddleware = require("../middleware/auth-middleware")
-// const loginSchema = require("../validators/auth-validator");
 
 router.route("/").get(authcontrollers.home);
 
