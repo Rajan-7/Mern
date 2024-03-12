@@ -48,11 +48,7 @@ label {
 }
 
 /* Layouts */
-/* .container{
-  max-width: 140rem;
-  margin:0 auto;
-  padding: 4rem 2.4rem;
-} */
+
 .grid {
   display: grid;
   gap: 5.4rem;
@@ -62,8 +58,17 @@ label {
   grid-template-columns: repeat(2, 1fr);
 }
 
+.grid-threep-cols{
+  grid-template-columns: repeat(3,1fr);
+}
+
 .grid-four-cols {
   grid-template-columns: repeat(4, 1fr);
+}
+
+.border_b{
+  width: 9rem;
+  border-bottom: .4rem solid rgb(61, 38, 171);
 }
 
 /* Reusabel/Module */
@@ -326,3 +331,18 @@ button:hover {
   color: #fff;
 }
 /* End Error/PageNotFound section */
+
+/* service */
+.card{
+  border:.1rem solid rgb(211, 211, 221);
+}
+
+.card .card-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-details{
+  padding:0 2rem;
+}

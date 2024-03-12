@@ -3,11 +3,13 @@ import { createContext, useContext, useEffect, useState } from "react";
 export const AuthContext = createContext();
 
 const URL = "http://localhost:5007/api/auth/user";
+const USL = "http://localhost:5007/api/data/service";
 
 // Provider
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
-  const [user,setUser] = useState("");
+  const [user, setUser] = useState("");
+  const [services, setServices] = useState([]);
 
   const storeTokenLs = (serverToken) => {
     return localStorage.setItem("token", serverToken);
@@ -40,12 +42,30 @@ export const AuthProvider = ({ children }) => {
       console.error("Error occured Fetching user Data");
     }
   };
+
+  // fetching the service data for the database
+  const getServices = async () => {
+    try {
+      const response = await fetch(USL);
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data.msg);
+        setServices(data.msg);
+      }
+    } catch (error) {
+      console.log(`From service frontend: ${error}`);
+    }
+  };
+
   useEffect(() => {
+    getServices();
     userAuthentication();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ storeTokenLs, LogoutUser, isLoggedIn,user }}>
+    <AuthContext.Provider
+      value={{ storeTokenLs, LogoutUser, isLoggedIn, user,services }}
+    >
       {children}
     </AuthContext.Provider>
   );
