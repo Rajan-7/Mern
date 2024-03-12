@@ -33,14 +33,16 @@ export const Login = () => {
         },
         body: JSON.stringify(user),
       });
+      const res_data = await response.json();
+      console.log(res_data);
       if (response.ok) {
-        const res_data = await response.json();
         // Storing Token in LocalStorage
         storeTokenLs(res_data.token);
         alert("Login Successful");
         setUser({ email: "", password: "" });
         navigate("/");
       } else {
+        alert(res_data.moreDetails ? res_data.moreDetails : res_data.message);
         console.log("Invalid credentials");
       }
     } catch (error) {

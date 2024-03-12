@@ -40,12 +40,15 @@ export const Register = () => {
         },
         body: JSON.stringify(user),
       });
+      const res_data = await response.json();
+      console.log(res_data);
       if (response.ok) {
-        const res_data = await response.json();
         // Storing token in LocalStorage
         storeTokenLs(res_data.token);
         setUser({ username: "", email: "", phone: "", password: "" });
         navigate("/login");
+      }else{
+        alert(res_data.moreDetails ? res_data.moreDetails : res_data.message);
       }
       console.log("response data : ", response);
     } catch (error) {
