@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const authRoute = require("./router/auth-router");
+const serviceRoute = require("./controller/service-controller")
 const contactRoute = require("./router/contact-router");
 const connectDb = require("./utils/db");
 const errorMiddleware = require("./middleware/error-middleware");
@@ -21,6 +22,8 @@ app.use(express.json());
 // Mount the Routers
 app.use("/api/auth", authRoute);
 app.use("/api/form", contactRoute);
+app.use("/api/data", serviceRoute);
+
 
 app.use(errorMiddleware);
 

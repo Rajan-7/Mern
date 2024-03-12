@@ -10,7 +10,7 @@ export const About = () => {
         <section className="hero-section">
           <div className="container grid grid-two-cols">
             <div className="hero-content">
-              <p>Welcome,{user.username}</p>
+              <p>Welcome,{user ? `${user.username} to our website` : "to our website"}</p>
               <h1>Why Choose Us?</h1>
               <p>
                 Expertise: Our team consists of experienced IT professionals who
