@@ -99,6 +99,11 @@ button {
   margin-left: 2.2rem;
 }
 
+.toastBody {
+  font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
+  font-size: 1.8rem ;
+}
+
 /* states */
 
 button:hover {

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
 
 const URl = "http://localhost:5007/api/auth/login";
 
@@ -38,11 +39,13 @@ export const Login = () => {
       if (response.ok) {
         // Storing Token in LocalStorage
         storeTokenLs(res_data.token);
-        alert("Login Successful");
         setUser({ email: "", password: "" });
+        toast.success("Login Successful");
         navigate("/");
       } else {
-        alert(res_data.moreDetails ? res_data.moreDetails : res_data.message);
+        toast.error(
+          res_data.moreDetails ? res_data.moreDetails : res_data.message
+        );
         console.log("Invalid credentials");
       }
     } catch (error) {
