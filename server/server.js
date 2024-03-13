@@ -1,11 +1,12 @@
 require("dotenv").config();
-const express = require("express");
 const cors = require("cors");
+const express = require("express");
 const app = express();
+const connectDb = require("./utils/db");
 const authRoute = require("./router/auth-router");
+const adminRoute = require("./router/admin-router");
 const serviceRoute = require("./controller/service-controller")
 const contactRoute = require("./router/contact-router");
-const connectDb = require("./utils/db");
 const errorMiddleware = require("./middleware/error-middleware");
 
 // Handling cors
@@ -23,6 +24,9 @@ app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/form", contactRoute);
 app.use("/api/data", serviceRoute);
+
+// admin router
+app.use("/api/admin", adminRoute);
 
 
 app.use(errorMiddleware);
