@@ -24,7 +24,7 @@ export const Login = () => {
   const navigate = useNavigate();
   const { storeTokenLs } = useAuth();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     try {
       const response = await fetch(URl, {

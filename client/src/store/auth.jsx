@@ -12,6 +12,7 @@ export const AuthProvider = ({ children }) => {
   const [services, setServices] = useState([]);
 
   const storeTokenLs = (serverToken) => {
+    setToken(serverToken);
     return localStorage.setItem("token", serverToken);
   };
 
@@ -64,7 +65,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ storeTokenLs, LogoutUser, isLoggedIn, user,services }}
+      value={{ storeTokenLs, LogoutUser, isLoggedIn, user, services }}
     >
       {children}
     </AuthContext.Provider>
