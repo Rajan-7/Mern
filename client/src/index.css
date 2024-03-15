@@ -351,3 +351,60 @@ button:hover {
 .card-details{
   padding:0 2rem;
 }
+
+/* Admin layout  */
+.admin .container nav ul li a{
+  display: flex;
+  align-items: center;
+}
+.admin .container nav ul li svg{
+  padding-right: .5rem;
+  font-size: 2.6rem;
+}
+/* Admin user layout */
+.admin-user-section .heading{
+  margin-bottom: -2rem;
+}
+
+.admin-user-section .heading h1{
+  font-size: 4.7rem;
+}
+
+table{
+  background:#fff ;
+  box-shadow: rgba(255,255,255,.2) 0rem .7rem 2.9rem 0rem;
+  border-collapse: collapse;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+tr th{
+  padding: 2.5rem;
+  font-size: 1.8rem;
+}
+
+td{
+  font-size: 1.7rem;
+  letter-spacing: .1rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+
+body tr{
+  display: grid;
+  grid-template-columns: repeat(5,minmax(10rem,1fr));
+  align-items: center;
+  box-shadow: 0 0.3rem 0 grey;
+  margin-bottom: 1rem;
+  border-bottom: 1rem solid transparent;
+  color:var(--dark-color);
+  &:last-child{
+    box-shadow: none;
+  }
+}
+
