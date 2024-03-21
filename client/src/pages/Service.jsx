@@ -10,12 +10,12 @@ export const Service = () => {
         </div>
         <div className="container grid grid-threep-cols">
           {services.map((curElm, ind) => {
-            const {price,provider,description,service}=curElm;
+            const {price,provider,description,service,image}=curElm;
             return (
               <div className="card" key={ind}>
                 <div className="card-image">
                   <img
-                    src="/image/design.png"
+                    src={image}
                     alt="Girl presenting topics"
                     height="250"
                     width="250"
