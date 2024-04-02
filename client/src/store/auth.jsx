@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
       const response = await fetch(URL, {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: authorizationToken,
         },
       });
       if (response.ok) {
