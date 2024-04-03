@@ -8,6 +8,7 @@ export const AdminUsers = () => {
   const [users, setUsers] = useState([]);
 
   const { authorizationToken } = useAuth();
+  console.log(users);
 
   const getAllUsers = async () => {
     try {
@@ -24,6 +25,24 @@ export const AdminUsers = () => {
       console.log(`Error on getting users data ${error}`);
     }
   };
+
+  const deleteUser = async(id)=>{
+    try {
+      const response = await fetch(`http://localhost:5007/api/admin/users/delete/${id}`,{
+        method:"DELETE",
+        headers:{
+          Authorization:authorizationToken,
+        }
+      });
+      const data = await response.json();
+      console.log("After deletion:",data);
+      if(response.ok){
+        getAllUsers();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
     getAllUsers();
@@ -54,7 +73,9 @@ export const AdminUsers = () => {
                     <td>{usrElm.email}</td>
                     <td>{usrElm.phone}</td>
                     <td>Edit</td>
-                    <td>Delete</td>
+                    <td>
+                      <button className="btn" onClick={() => deleteUser(usrElm._id)}>Delete</button>
+                    </td>
                   </tr>
                 );
               })}
