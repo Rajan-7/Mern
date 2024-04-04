@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { Link } from "react-router-dom";
+
 const URL = "http://localhost:5007/api/admin/users";
 
 import { useAuth } from "../store/auth";
@@ -26,23 +28,26 @@ export const AdminUsers = () => {
     }
   };
 
-  const deleteUser = async(id)=>{
+  const deleteUser = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5007/api/admin/users/delete/${id}`,{
-        method:"DELETE",
-        headers:{
-          Authorization:authorizationToken,
+      const response = await fetch(
+        `http://localhost:5007/api/admin/users/delete/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: authorizationToken,
+          },
         }
-      });
+      );
       const data = await response.json();
-      console.log("After deletion:",data);
-      if(response.ok){
+      console.log("After deletion:", data);
+      if (response.ok) {
         getAllUsers();
       }
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
     getAllUsers();
@@ -72,9 +77,16 @@ export const AdminUsers = () => {
                     <td>{usrElm.username}</td>
                     <td>{usrElm.email}</td>
                     <td>{usrElm.phone}</td>
-                    <td>Edit</td>
                     <td>
-                      <button className="btn" onClick={() => deleteUser(usrElm._id)}>Delete</button>
+                      <Link to={`/admin/users/${usrElm._id}/edit`}>Edit</Link>
+                    </td>
+                    <td>
+                      <button
+                        className="btn"
+                        onClick={() => deleteUser(usrElm._id)}
+                      >
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 );
