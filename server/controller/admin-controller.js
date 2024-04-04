@@ -13,6 +13,23 @@ const getAllUsers = async (req, res) => {
   }
 };
 
+// Update user
+const updateUserById = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const updatedUserdata = req.body;
+    const updatedData = await User.updateOne(
+      { _id: id },
+      {
+        $set: updatedUserdata,
+      }
+    );
+    return res.status(200).json(updatedData);
+  } catch (error) {
+    next(error);
+  }
+};
+
 // Fetch single User info/data
 const getUserById = async (req, res) => {
   try {
@@ -47,4 +64,10 @@ const getAllContacts = async (req, res) => {
   }
 };
 
-module.exports = { getAllUsers, getAllContacts, deleteUserid,getUserById };
+module.exports = {
+  getAllUsers,
+  getAllContacts,
+  deleteUserid,
+  getUserById,
+  updateUserById,
+};
