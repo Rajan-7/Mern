@@ -14,6 +14,7 @@ import { AdminUsers } from "./pages/Admin-users";
 import { AdminContacts } from "./pages/Admin-contacts";
 import { AdminJob } from "./pages/Admin-jobs";
 import { AdminBlog } from "./pages/Admin-blog";
+import { AdminUpdate } from "./pages/AdminUpdate";
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="*" element={<PageNotFound />}></Route>
           <Route path="/admin" element={<AdminLayout />}>
             <Route path="users" element={<AdminUsers />} />
+            <Route path="users/:id/edit" element={<AdminUpdate/>}/>
             <Route path="contacts" element={<AdminContacts />} />
             <Route path="jobs" element={<AdminJob />} />
             <Route path="blogs" element={<AdminBlog />} />
