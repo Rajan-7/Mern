@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { useParams } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import {toast} from "react-toastify"
 
 export const AdminUpdate = () => {
   const [data, setData] = useState({
@@ -13,7 +14,14 @@ export const AdminUpdate = () => {
   const params = useParams();
   const { authorizationToken } = useAuth();
 
-  const handleInput = () => {};
+  const handleInput = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+    setData({
+      ...data,
+      [name]: value,
+    });
+  };
 
   const getAllSingleUserData = async () => {
     try {
@@ -27,8 +35,32 @@ export const AdminUpdate = () => {
         }
       );
       const data = await response.json();
-      console.log("Single user data:",data);
+      console.log("Single user data:", data);
       setData(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(
+        `http://localhost:5007/api/admin/users/update/${params.id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: authorizationToken,
+          },
+          body: JSON.stringify(data),
+        }
+      );
+      if(response.ok){
+        toast.success("Update");
+      }else{
+        toast.error("Not updated");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -46,7 +78,7 @@ export const AdminUpdate = () => {
       <div className="container grid grid-two-cols">
         {/* contact form */}
         <section className="form-section">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div>
               <label htmlFor="username">username</label>
               <input
