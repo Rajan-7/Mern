@@ -10,6 +10,7 @@ router.route('/users/:id').get(authMiddleware,adminMiddleware,adminController.ge
 router.route('/users/update/:id').patch(authMiddleware,adminMiddleware,adminController.updateUserById);
 router.route('/users/delete/:id').delete(authMiddleware,adminMiddleware,adminController.deleteUserid);
 router.route('/contacts').get(authMiddleware,adminMiddleware,adminController.getAllContacts);
+router.route('/contacts/delete/:id').delete(authMiddleware,adminMiddleware,adminController.deleteContactById);
 
 
 module.exports = router;

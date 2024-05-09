@@ -1,5 +1,5 @@
-import { useEffect,useState } from "react";
-import {useAuth} from "../store/auth";
+import { useEffect, useState } from "react";
+import { useAuth } from "../store/auth";
 
 const URL = "http://localhost:5007/api/admin/contacts";
 
@@ -28,6 +28,26 @@ export const AdminContacts = () => {
   useEffect(() => {
     getAllContacts();
   }, []);
+
+  const deleteContact = async (id) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5007/api/admin/contacts/delete/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: authorizationToken,
+          },
+        }
+      );
+      if (response.ok) {
+        getAllContacts();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <section className="admin-user-section">
@@ -52,12 +72,16 @@ export const AdminContacts = () => {
                     <td>jhon@gmail.com</td>
                     <td>About Blogs</td>
                     <td>
-                      <button className="btn">Delete</button>
+                      <button
+                        className="btn"
+                        onClick={() => deleteContact(elem._id)}
+                      >
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 );
               })}
-              
             </tbody>
           </table>
         </div>
