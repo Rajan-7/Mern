@@ -12,7 +12,9 @@ export const AdminUpdate = () => {
   });
 
   const params = useParams();
+  console.log(params.id);
   const { authorizationToken } = useAuth();
+  console.log(authorizationToken);
 
   const handleInput = (e) => {
     let name = e.target.name;

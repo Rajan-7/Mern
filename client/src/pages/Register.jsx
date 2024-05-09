@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import {toast} from "react-toastify"
 
+
 const URL = "http://localhost:5007/api/auth/register";
 
 export const Register = () => {

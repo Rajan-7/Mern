@@ -391,3 +391,16 @@ body tr{
   }
 }
 
+body .tr_c{
+  display: grid;
+  grid-template-columns: repeat(4,minmax(10rem,1fr));
+  align-items: center;
+  box-shadow: 0 0.3rem 0 grey;
+  margin-bottom: 1rem;
+  border-bottom: 1rem solid transparent;
+  color:var(--dark-color);
+  &:last-child{
+    box-shadow: none;
+  }
+}
+

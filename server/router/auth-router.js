@@ -3,7 +3,7 @@ const router = express.Router();
 const authcontrollers = require("../controller/auth-controller");
 const validate = require("../middleware/validate-middleware");
 const { signupSchema, loginSchema } = require("../validators/auth-validator");
-const authMiddleware = require("../middleware/auth-middleware");
+
 
 router.route("/").get(authcontrollers.home);
 

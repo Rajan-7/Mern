@@ -30,15 +30,9 @@ export const AdminLayout = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/admin/blogs">
-                  <FaBlogger />
-                  Blog
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/admin/jobs">
-                  <FaNetworkWired />
-                  Jobs
+                <NavLink to="/">
+                  <FaHome />
+                  Home
                 </NavLink>
               </li>
             </ul>
